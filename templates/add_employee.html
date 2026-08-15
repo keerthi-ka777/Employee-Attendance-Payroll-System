@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Add Employee</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<nav>
+
+    <h2>Employee Management System</h2>
+
+    <div>
+
+        <a href="/">Dashboard</a>
+
+        <a href="/employees">Employees</a>
+
+        <a href="/attendance">Attendance</a>
+
+        <a href="/payroll">Payroll</a>
+
+    </div>
+
+</nav>
+
+
+<div class="container">
+
+    <h1>Add Employee</h1>
+
+
+    <form method="POST">
+
+        <label>Name</label>
+
+        <input
+            type="text"
+            name="name"
+            placeholder="Enter employee name"
+            required>
+
+
+        <label>Email</label>
+
+        <input
+            type="email"
+            name="email"
+            placeholder="Enter email"
+            required>
+
+
+        <label>Department</label>
+
+        <select name="department" required>
+
+            <option value="">
+                Select Department
+            </option>
+
+            <option value="IT">
+                IT
+            </option>
+
+            <option value="HR">
+                HR
+            </option>
+
+            <option value="Finance">
+                Finance
+            </option>
+
+            <option value="Sales">
+                Sales
+            </option>
+
+            <option value="Marketing">
+                Marketing
+            </option>
+
+        </select>
+
+
+        <label>Designation</label>
+
+        <input
+            type="text"
+            name="designation"
+            placeholder="Enter designation"
+            required>
+
+
+        <label>Joining Date</label>
+
+        <input
+            type="date"
+            name="joining_date"
+            required>
+
+
+        <label>Basic Salary</label>
+
+        <input
+            type="number"
+            name="basic_salary"
+            min="0"
+            placeholder="Enter salary"
+            required>
+
+
+        <button type="submit">
+
+            Add Employee
+
+        </button>
+
+    </form>
+
+</div>
+
+</body>
+
+</html>

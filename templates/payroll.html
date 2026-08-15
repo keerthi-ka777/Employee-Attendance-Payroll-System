@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Payroll</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<nav>
+
+    <h2>Employee Management System</h2>
+
+    <div>
+
+        <a href="/">Dashboard</a>
+
+        <a href="/employees">Employees</a>
+
+        <a href="/attendance">Attendance</a>
+
+        <a href="/payroll">Payroll</a>
+
+    </div>
+
+</nav>
+
+
+<div class="container">
+
+    <h1>Payroll Management</h1>
+
+
+    {% with messages =
+    get_flashed_messages(with_categories=true) %}
+
+        {% for category, message in messages %}
+
+            <div class="alert {{ category }}">
+
+                {{ message }}
+
+            </div>
+
+        {% endfor %}
+
+    {% endwith %}
+
+
+    <form method="POST">
+
+        <label>Employee</label>
+
+        <select
+            name="employee_id"
+            required>
+
+            <option value="">
+                Select Employee
+            </option>
+
+            {% for employee in employees %}
+
+            <option
+                value="{{ employee.employee_id }}">
+
+                {{ employee.name }}
+
+            </option>
+
+            {% endfor %}
+
+        </select>
+
+
+        <label>Month</label>
+
+        <input
+            type="number"
+            name="month"
+            min="1"
+            max="12"
+            placeholder="1 - 12"
+            required>
+
+
+        <label>Year</label>
+
+        <input
+            type="number"
+            name="year"
+            min="2020"
+            max="2100"
+            required>
+
+
+        <label>Working Days</label>
+
+        <input
+            type="number"
+            name="working_days"
+            min="1"
+            required>
+
+
+        <label>Overtime Hours</label>
+
+        <input
+            type="number"
+            name="overtime_hours"
+            min="0"
+            step="0.5"
+            value="0">
+
+
+        <button type="submit">
+
+            Calculate Payroll
+
+        </button>
+
+    </form>
+
+
+    <h2>Payroll Records</h2>
+
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>Employee</th>
+
+                <th>Month</th>
+
+                <th>Year</th>
+
+                <th>Present</th>
+
+                <th>Absent</th>
+
+                <th>Leave</th>
+
+                <th>Overtime</th>
+
+                <th>Net Salary</th>
+
+            </tr>
+
+        </thead>
+
+
+        <tbody>
+
+            {% for record in payroll %}
+
+            <tr>
+
+                <td>
+                    {{ record.name }}
+                </td>
+
+                <td>
+                    {{ record.month }}
+                </td>
+
+                <td>
+                    {{ record.year }}
+                </td>
+
+                <td>
+                    {{ record.present_days }}
+                </td>
+
+                <td>
+                    {{ record.absent_days }}
+                </td>
+
+                <td>
+                    {{ record.leave_days }}
+                </td>
+
+                <td>
+                    {{ record.overtime_hours }}
+                </td>
+
+                <td>
+                    ₹{{ "%.2f"|format(record.net_salary) }}
+                </td>
+
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+
+</div>
+
+</body>
+
+</html>

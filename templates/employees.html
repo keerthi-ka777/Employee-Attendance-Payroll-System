@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Employees</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<nav>
+
+    <h2>Employee Management System</h2>
+
+    <div>
+
+        <a href="/">Dashboard</a>
+
+        <a href="/employees">Employees</a>
+
+        <a href="/attendance">Attendance</a>
+
+        <a href="/payroll">Payroll</a>
+
+    </div>
+
+</nav>
+
+
+<div class="container">
+
+    <div class="page-header">
+
+        <h1>Employees</h1>
+
+        <a href="/add-employee"
+           class="button">
+
+            Add Employee
+
+        </a>
+
+    </div>
+
+
+    {% with messages =
+    get_flashed_messages(with_categories=true) %}
+
+        {% for category, message in messages %}
+
+            <div class="alert {{ category }}">
+
+                {{ message }}
+
+            </div>
+
+        {% endfor %}
+
+    {% endwith %}
+
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>ID</th>
+
+                <th>Name</th>
+
+                <th>Email</th>
+
+                <th>Department</th>
+
+                <th>Designation</th>
+
+                <th>Salary</th>
+
+                <th>Action</th>
+
+            </tr>
+
+        </thead>
+
+
+        <tbody>
+
+            {% for employee in employees %}
+
+            <tr>
+
+                <td>
+                    {{ employee.employee_id }}
+                </td>
+
+                <td>
+                    {{ employee.name }}
+                </td>
+
+                <td>
+                    {{ employee.email }}
+                </td>
+
+                <td>
+                    {{ employee.department }}
+                </td>
+
+                <td>
+                    {{ employee.designation }}
+                </td>
+
+                <td>
+                    ₹{{ employee.basic_salary }}
+                </td>
+
+                <td>
+
+                    <a
+                        class="edit"
+                        href="/edit-employee/{{ employee.employee_id }}">
+
+                        Edit
+
+                    </a>
+
+                    <a
+                        class="delete"
+                        href="/delete-employee/{{ employee.employee_id }}"
+                         onclick="return confirmDelete();">
+
+                        Delete
+
+                    </a>
+
+                </td>
+
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+
+</div>
+
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>
