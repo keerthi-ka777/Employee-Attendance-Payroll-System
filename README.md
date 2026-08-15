@@ -1,36 +1,77 @@
 # Employee Attendance & Payroll Management System
 
-A web-based Employee Attendance and Payroll Management System developed using Python Flask and SQLite.
+A web-based Employee Attendance & Payroll Management System developed using Python, Flask, SQLite, HTML, CSS, and JavaScript.
 
-## Project Overview
+## 🚀 Live Demo
 
-This system helps manage employee information, attendance records, and monthly payroll calculations through a simple web interface.
+👉 https://employee-attendance-payroll-system.onrender.com/
 
-## Features
+## 📂 GitHub Repository
+
+👉 https://github.com/keerthi-ka777/Employee-Attendance-Payroll-System
+
+---
+
+## 📌 Project Overview
+
+The Employee Attendance & Payroll Management System is a Flask-based web application designed to manage employee information, track attendance, and manage payroll records through a simple and user-friendly web interface.
+
+The application provides separate modules for employee management, attendance management, payroll management, and a dashboard.
+
+---
+
+## ✨ Features
+
+### 👨‍💼 Employee Management
 
 - Add new employees
 - View employee details
 - Edit employee information
 - Delete employees
-- Mark employee attendance
-- Track Present, Absent, and Leave status
+- Manage employee salary and job details
+
+### 📅 Attendance Management
+
+- Record employee attendance
+- Select attendance date
+- Mark employees as Present, Absent, or Leave
 - View attendance records
-- Calculate monthly payroll
-- Calculate overtime
+
+### 💰 Payroll Management
+
+- Manage employee payroll information
+- Calculate and display payroll details
+- Track attendance-related payroll information
+- Manage overtime information
 - View payroll records
-- Dashboard showing employee and attendance statistics
 
-## Technologies Used
+### 📊 Dashboard
 
-- Python
-- Flask
-- SQLite
-- HTML
-- CSS
-- JavaScript
-- SQL
+- View total employees
+- View attendance statistics
+- View present employees
+- View absent employees
+- View employees on leave
 
-## Project Structure
+---
+
+## 🛠️ Technologies Used
+
+| Technology | Purpose |
+|------------|---------|
+| Python | Backend programming |
+| Flask | Web application framework |
+| SQLite | Database |
+| SQL | Database queries |
+| HTML | Web page structure |
+| CSS | Styling and user interface |
+| JavaScript | Client-side functionality |
+| Git & GitHub | Version control and source code management |
+| Render | Application deployment |
+
+---
+
+## 🏗️ Project Structure
 
 ```text
 Employee-Attendance-Payroll-System/
